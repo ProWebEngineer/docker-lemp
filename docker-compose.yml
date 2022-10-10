@@ -18,12 +18,12 @@ services:
   mysql:
     image: mysql:5.7
     environment:
-      MYSQL_DATABASE: ****
-      MYSQL_USER: ****
-      MYSQL_PASSWORD: ****
-      MYSQL_ROOT_PASSWORD: ****
+      MYSQL_DATABASE: common
+      MYSQL_USER: masato
+      MYSQL_PASSWORD: masato
+      MYSQL_ROOT_PASSWORD: masato
     ports:
-      - "3306:3306"
+      - "80:80"
     volumes:
       - mysql-data:/var/lib/mysql
 volumes:
