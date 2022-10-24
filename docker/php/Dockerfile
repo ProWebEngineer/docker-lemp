@@ -7,10 +7,19 @@ RUN apt-get update \
 git \
 zip \
 unzip \
-vim
+vim 
 
 RUN apt-get update \
     && apt-get install -y libpq-dev \
     && docker-php-ext-install pdo_mysql pdo_pgsql mysqli 
+    
 RUN echo "alias ll='ls -la'" >> ~/.bashrc && . ~/.bashrc
+
+RUN apt-get update \
+    && apt-get install -y locales \
+    && sed -i -e 's/# \(ja_JP.UTF-8\)/\1/' /etc/locale.gen \
+    && locale-gen 
+ENV LANG ja_JP.UTF-8
+
+
 WORKDIR /var/www/html
