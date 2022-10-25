@@ -22,11 +22,13 @@ services:
       MYSQL_USER: masato
       MYSQL_PASSWORD: masato
       MYSQL_ROOT_PASSWORD: masato
+      
+      
     ports:
       - "80:80"
     volumes:
       - mysql-data:/var/lib/mysql
       - ./docker/mysql/:/docker-entrypoint-initdb.d
-      
+      - /usr/share/zoneinfo/Asia/Tokyo:/etc/localtime
 volumes:
   mysql-data:
